@@ -20,5 +20,10 @@ public class CameraRotation : MonoBehaviour
             newAngleX -= 360;
         newAngleX = Mathf.Clamp(newAngleX, minAngle, maxAngle);
         CameraAxisTransform.localEulerAngles = new Vector3(newAngleX, 0, 0); //вращение камеры по у
+
+        if (Input.GetKey(KeyCode.A))
+            CameraAxisTransform.localEulerAngles = new Vector3(CameraAxisTransform.localEulerAngles.x, CameraAxisTransform.localEulerAngles.y, 3); //фотореалистичный поворот камеры при повороте направо
+        if (Input.GetKey(KeyCode.D))
+            CameraAxisTransform.localEulerAngles = new Vector3(CameraAxisTransform.localEulerAngles.x, CameraAxisTransform.localEulerAngles.y, -3); //фотореалистичный поворот камеры при повороте налево
     }
 }
